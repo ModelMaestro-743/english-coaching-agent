@@ -1,4 +1,6 @@
+import asyncio
 import sys
+from contextlib import asynccontextmanager
 
 import uvicorn
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
@@ -9,14 +11,22 @@ from .session import TwilioSession, cache_greeting, load_models
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-app = FastAPI()
 
-
-@app.on_event("startup")
-async def startup() -> None:
+async def _background_startup() -> None:
     load_models()
     await cache_greeting()
     print("✅ Server ready")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Schedule heavy init as a background task so the port binds immediately.
+    # Render kills the container if the port isn't bound within 30 seconds.
+    asyncio.create_task(_background_startup())
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 @app.get("/health")
