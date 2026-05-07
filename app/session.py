@@ -35,6 +35,7 @@ def load_models() -> None:
         repo_or_dir="snakers4/silero-vad",
         model="silero_vad",
         trust_repo=True,
+        force_reload=False,
     )
     vad_model = _model
     (get_speech_timestamps, _, _, _, _) = utils
