@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: english-coaching-agent
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SERVER_HOST
+        sync: false
+      - key: MAX_CALL_DURATION
+        value: "3600"
+      - key: MAX_CONVERSATION_SECONDS
+        value: "300"
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
