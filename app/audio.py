@@ -2,8 +2,6 @@ import base64
 import audioop
 import numpy as np
 
-from .config import TTS_RATE
-
 
 def mulaw_to_float32(payload: str) -> np.ndarray:
     """Decode base64 mulaw 8 kHz → float32 16 kHz for Whisper / VAD."""

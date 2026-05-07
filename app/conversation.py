@@ -1,6 +1,6 @@
 import time
 
-from .config import openai_client, COACH_SYSTEM_PROMPT
+from .config import openai_client
 
 
 class ConversationManager:
