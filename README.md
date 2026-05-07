@@ -1,7 +1,6 @@
 # English Coaching Voice Agent
 
-A real-time AI English conversation coach delivered over a phone call. The user calls a Twilio number, has a free-form spoken conversation with a GPT-powered coach, and receives personalised spoken feedback on their English at the end of the session.
-
+A real-time AI English conversation coach delivered over a phone call. Call +1 (405) 687-7983 to have a free-form spoken conversation with a GPT-powered coach and receive personalised spoken feedback on your English at the end of the session.
 ---
 
 ## How It Works
