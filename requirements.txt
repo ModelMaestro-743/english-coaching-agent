@@ -11,6 +11,7 @@ torch==2.7.1
 torchaudio==2.7.1
 numpy==2.2.6
 scipy==1.16.1
+packaging
 
 autogen-agentchat==0.7.1
 autogen-ext[openai]==0.7.1
